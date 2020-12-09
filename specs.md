@@ -15,6 +15,7 @@
 
 - List all URLs   GET  http://localhost:8080/urls
 - Create URL      POST http://localhost:8080/urls
-- Get URL         GET  http://localhost:8080/urls/17
-- Update URL      PUT  http://localhost:8080/urls/17
-- Delete URL      DEL  http://localhost:8080/urls/17
+- Get URL         GET  http://localhost:8080/urls/Bc-1dREw
+- Get URL         GET  http://localhost:8080/urls/Bc-1dREw?click=true
+- Update URL      PUT  http://localhost:8080/urls/Bc-1dREw
+- Delete URL      DEL  http://localhost:8080/urls/Bc-1dREw
