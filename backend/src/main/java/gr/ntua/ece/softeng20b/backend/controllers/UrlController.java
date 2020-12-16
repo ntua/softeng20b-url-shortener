@@ -20,11 +20,13 @@ class UrlController {
     this.repository = repository;
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/urls")
   List<Url> all() {
     return repository.findAll();
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping("/urls")
   Url newUrl(@RequestBody Url newUrl) {
     log.info("POST /urls " + newUrl.toString());
@@ -32,6 +34,7 @@ class UrlController {
     return repository.save(newUrl);
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/urls/{id}")
   Url one(@PathVariable String id,
           @RequestParam(required=false, defaultValue="false") Boolean click) {
@@ -44,6 +47,7 @@ class UrlController {
       .orElseThrow(() -> new UrlNotFoundException(id));
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PutMapping("/urls/{id}")
   Url replaceUrl(@RequestBody Url newUrl, @PathVariable String id) {
     log.info("PUT /urls/" + id + " " + newUrl.toString());
@@ -58,6 +62,7 @@ class UrlController {
       .orElseThrow(() -> new UrlNotFoundException(id));
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @DeleteMapping("/urls/{id}")
   void deleteUrl(@PathVariable String id) {
     log.info("DEL /urls/" + id);

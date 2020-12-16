@@ -15,22 +15,26 @@ class UserController {
     this.repository = repository;
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/users")
   List<User> all() {
     return repository.findAll();
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping("/users")
   User newUser(@RequestBody User newUser) {
     return repository.save(newUser);
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping("/users/{id}")
   User one(@PathVariable Integer id) {
     return repository.findById(id)
       .orElseThrow(() -> new UserNotFoundException(id));
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @PutMapping("/users/{id}")
   User replaceUser(@RequestBody User newUser, @PathVariable Integer id) {
     return repository.findById(id)
@@ -41,6 +45,7 @@ class UserController {
       .orElseThrow(() -> new UserNotFoundException(id));
   }
 
+  @CrossOrigin(origins = "http://localhost:3000")
   @DeleteMapping("/users/{id}")
   void deleteUser(@PathVariable Integer id) {
     repository.deleteById(id);
